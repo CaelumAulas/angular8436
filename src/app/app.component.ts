@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'cmail-front';
+  title = 'Cmail - O Email mais showzao';
+
+  isNewEmailFormOpen = false;
+
+  toggleNewEmailForm() {
+    this.isNewEmailFormOpen = !this.isNewEmailFormOpen;
+  }
 }
