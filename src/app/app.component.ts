@@ -8,9 +8,29 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Cmail - O Email mais showzao';
 
-  isNewEmailFormOpen = false;
+  emails = [];
+
+  email = {
+    to: '',
+    subject: '',
+    body: ''
+  };
+
+  isNewEmailFormOpen = true;
 
   toggleNewEmailForm() {
     this.isNewEmailFormOpen = !this.isNewEmailFormOpen;
+  }
+
+  sendEmail(infosDoEvento: Event) {
+    infosDoEvento.preventDefault();
+    // Funcional/Imutabilidade
+    // Spread Operator
+    this.emails.push({ ...this.email });
+    this.email = {
+      to: '',
+      subject: '',
+      body: ''
+    };
   }
 }
