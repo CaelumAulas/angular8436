@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +23,10 @@ export class AppComponent {
     this.isNewEmailFormOpen = !this.isNewEmailFormOpen;
   }
 
-  sendEmail(infosDoEvento: Event) {
-    infosDoEvento.preventDefault();
+  sendEmail(formEmail: NgForm) {
+
+    console.log(formEmail)
+
     // Funcional/Imutabilidade
     // Spread Operator
     this.emails.push({ ...this.email });
