@@ -1,0 +1,13 @@
+<div class="cmailInputForm">
+  <div
+    class="mdl-textfield mdl-textfield--floating-label"
+    [ngClass]="{ 'is-invalid': campo.invalid && campo.touched }"
+  >
+    <ng-content></ng-content>
+    <span class="mdl-textfield__error"
+      >Informar um {{ valorDaLabel }} é obrigatório!</span
+    >
+    <label class="mdl-textfield__label" for="nome">{{ valorDaLabel }}: </label>
+    <span class="mdl-textfield__formline"></span>
+  </div>
+</div>

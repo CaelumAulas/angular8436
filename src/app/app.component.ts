@@ -1,39 +1,11 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  // templateUrl: Carrega um arquivo
+  // template: recebe direto o HTML que vai pra página
+  template: `
+    <router-outlet></router-outlet>
+  `
 })
-export class AppComponent {
-  title = 'Cmail - O Email mais showzao';
-
-  emails = [];
-
-  email = {
-    to: '',
-    subject: '',
-    body: ''
-  };
-
-  isNewEmailFormOpen = true;
-
-  toggleNewEmailForm() {
-    this.isNewEmailFormOpen = !this.isNewEmailFormOpen;
-  }
-
-  sendEmail(formEmail: NgForm) {
-
-    console.log(formEmail)
-
-    // Funcional/Imutabilidade
-    // Spread Operator
-    this.emails.push({ ...this.email });
-    this.email = {
-      to: '',
-      subject: '',
-      body: ''
-    };
-  }
-}
+export class AppComponent {}

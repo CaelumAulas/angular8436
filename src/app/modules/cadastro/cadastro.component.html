@@ -1,0 +1,71 @@
+<h1>Cadastro</h1>
+<!-- Two Day data binding -->
+<!-- Validação via template (no lado do html) -->
+<!-- Na mão: (input)="valor = $event.target.value" value="valor" -->
+<!-- FormsModule: [(ngModel)]="valor"  -->
+<!-- Validação via Modelo (no lado do ts) -->
+<!-- ReactiveFormsModule -->
+<form [formGroup]="formCadastro" (submit)="handleCadastroDeUsuario()">
+  <cmail-form-group [campo]="formCadastro.get('nome')">
+    <input
+      formControlName="nome"
+      cmailFormField
+      name="nome"
+      type="text"
+      placeholder="Nome"
+    />
+  </cmail-form-group>
+
+  <cmail-form-group [campo]="formCadastro.get('usuario')">
+    <input
+      formControlName="usuario"
+      name="usuario"
+      type="text"
+      placeholder="Usuario"
+      cmailFormField
+    />
+  </cmail-form-group>
+
+  <button type="submit">Enviar formulário</button>
+
+  <!--
+  id="nome" OK
+  class="mdl-textfield__input" OK
+  placeholder=" " -->
+
+  <!-- <div class="cmailInputForm">
+    Valido: {{ campoNome.invalid && campoNome.touched }}
+    <div
+      class="mdl-textfield mdl-textfield--floating-label"
+      [ngClass]="{
+        'is-invalid': campoNome.invalid && campoNome.touched
+      }"
+    >
+      <input
+        #campoNome="ngModel"
+        [(ngModel)]="nome"
+        required
+        type="text"
+        name="nome"
+        id="nome"
+        placeholder=" "
+        class="mdl-textfield__input"
+      />
+      <span class="mdl-textfield__error">Informar um nome é obrigatório!</span>
+      <label class="mdl-textfield__label" for="nome">Nome: </label>
+      <span class="mdl-textfield__formline"></span>
+    </div>
+  </div> -->
+</form>
+
+<!--
+
+- Nome (tem que ter ao menos um caracter)
+- username@cmail.com.br (validacao minima)
+- senha (discussão sobre senha)
+- confirmar senha*
+- telefone (DD, se é um telefone valido)
+- avatar (coloca uma URL, vamos validar a URL de forma assincrona)
+
+
+ -->
