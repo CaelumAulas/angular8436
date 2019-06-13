@@ -1,1 +1,109 @@
-Página de login
+Login
+<!-- <div class="mdl-layout mdl-js-layout">
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="mdl-grid">
+        <article class="demo-card-wide mdl-card mdl-shadow--2dp">
+          <header class="mdl-card__title">
+            <h1 class="mdl-card__title-text">Bem vindos/as ao CMail!</h1>
+          </header>
+
+          <form
+            [formGroup]="formLogin"
+            (submit)="logar()"
+            autocomplete="off"
+            class="mdl-card__supporting-text"
+          >
+            <cmail-form-group [campo]="formLogin.get('email')">
+              <input
+                formControlName="email"
+                cmailFormField
+                name="email"
+                type="email"
+                placeholder="Email"
+              />
+            </cmail-form-group>
+
+            <cmail-form-group [campo]="formLogin.get('senha')">
+              <input
+                formControlName="senha"
+                cmailFormField
+                name="senha"
+                type="password"
+                placeholder="Senha"
+              />
+            </cmail-form-group>
+
+            <div class="mdl-card__actions mdl-card--border">
+              <a
+                [routerLink]="['/cadastro']"
+                routerLink="cadastro"
+                class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+              >
+                Primeiro login? Cadastre-se!
+              </a>
+              <button
+                type="submit"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent entrar"
+              >
+                Entrar
+              </button>
+            </div>
+          </form>
+        </article>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!--
+  Pega HTML e o CSS aqui:
+  https://github.com/caelum/projeto-js45/blob/master/15/src -->
+
+<!-- Pode usar: -->
+<!-- ReactiveFormsModule: define tudo no .ts (cadastro) -->
+<!-- FormsModule: define as validacoes no .html (inbox) -->
+
+<!-- aqui os campos do formulário -->
+<!-- Campo email: email required -->
+<!-- Campo senha: required -->
+
+<!--
+  Por último:
+  colocar a função que pega captura
+  a ação de submit e faz um console.log com os dados do form -->
+
+<!--
+  [FormsModule]
+  <form
+    #formEmail="ngForm"
+    (submit)="logar(formEmail)"
+    autocomplete="off"
+    class="mdl-card__supporting-text"
+  >
+    <cmail-form-group [campo]="campoEmail">
+      <input
+        #campoEmail="ngModel"
+        [(ngModel)]="dadosLogin.email"
+        cmailFormField
+        name="email"
+        type="email"
+        required
+        email
+        placeholder="Email"
+      />
+    </cmail-form-group>
+
+    <cmail-form-group [campo]="campoSenha">
+      <input
+        #campoSenha="ngModel"
+        [(ngModel)]="dadosLogin.senha"
+        cmailFormField
+        name="senha"
+        type="password"
+        required
+        placeholder="Senha"
+      />
+    </cmail-form-group>
+  </form> -->
+-->

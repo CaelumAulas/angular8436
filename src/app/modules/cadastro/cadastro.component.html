@@ -26,6 +26,16 @@
     />
   </cmail-form-group>
 
+  <cmail-form-group [campo]="formCadastro.get('telefone')">
+    <input
+      formControlName="telefone"
+      name="telefone"
+      type="tel"
+      placeholder="Telefone"
+      cmailFormField
+    />
+  </cmail-form-group>
+
   <button type="submit">Enviar formulário</button>
 
   <!--
