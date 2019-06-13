@@ -6,20 +6,15 @@ import { NgModule } from "@angular/core";
 import { CadastroComponent } from "./cadastro.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-import { CmailFormGroupComponent } from "src/app/components/cmail-form-group/cmail-form-group.component";
-import { CmailFormFieldDirective } from "src/app/components/cmail-form-group/cmailFormField.directive";
 import { CadastroRoutingModule } from "./cadastro-routing.module";
+import { CmailFormModule } from "src/app/shared/modules/cmailform/cmail-form.module";
 
 @NgModule({
-  declarations: [
-    CadastroComponent,
-    CmailFormGroupComponent,
-    CmailFormFieldDirective
-  ],
+  declarations: [CadastroComponent],
   imports: [
-    // diretivas padrões do angular vem por meio do CommonModule
     CommonModule,
     ReactiveFormsModule,
+    CmailFormModule,
     CadastroRoutingModule
   ],
   exports: [CadastroComponent]
