@@ -52,3 +52,7 @@
 
 - VsCode tradição 0800
 - https://www.jetbrains.com/webstorm/ (vai uns dinheiros)
+
+## Aprender mais sobre automatizar coisas
+
+- https://www.youtube.com/watch?v=kjhu1LEmRpY&list=PLMdYygf53DP4YTVeu0JxVnWq01uXrLwHi

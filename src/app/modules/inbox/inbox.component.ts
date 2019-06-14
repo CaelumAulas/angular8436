@@ -1,7 +1,10 @@
 import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { EmailService } from "./email.service";
+import { Email } from "./domain/Email";
 
-interface IEmail {
+// Props do componente
+interface IEmailFromView {
   to: string;
   subject: string;
   body: string;
@@ -14,15 +17,17 @@ interface IEmail {
 export class InboxComponent {
   title = "Cmail - O Email mais showzao";
 
-  emails: IEmail[] = [];
+  emails: Email[] = [];
 
-  email: IEmail = {
-    to: "teate@gmail.com",
-    subject: "Assunto",
-    body: "alo alo"
+  email: IEmailFromView = {
+    to: "omariosouto@cmail.com",
+    subject: "Teste",
+    body: "Corpo do email"
   };
 
   isNewEmailFormOpen = true;
+
+  constructor(private emailService: EmailService) {}
 
   toggleNewEmailForm() {
     this.isNewEmailFormOpen = !this.isNewEmailFormOpen;
@@ -30,11 +35,20 @@ export class InboxComponent {
 
   sendEmail(formEmail: NgForm) {
     if (formEmail.valid) {
-      this.emails.push({
-        body: formEmail.form.value.conteudo,
-        subject: formEmail.form.value.assunto,
-        to: formEmail.form.value.para
-      });
+      this.emailService
+        .enviar({
+          content: this.email.body,
+          subject: this.email.subject,
+          to: this.email.to
+        })
+        .subscribe(
+          (email: Email) => {
+            this.emails.push(email);
+          },
+          err => {
+            console.log(err);
+          }
+        );
       formEmail.resetForm();
     } else {
       alert("Deixa de ser espertinho");

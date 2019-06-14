@@ -1,3 +1,8 @@
+## Pra quem quiser ver mais coisas de injeção de dependencia
+
+- https://www.devmedia.com.br/service-locator/4531
+- https://www.youtube.com/watch?v=0X1Ns2NRfks (é meio triste, mas ajuda)
+
 ## Coisas gerais
 
 - Criar projeto: npx @angular/cli new projeto

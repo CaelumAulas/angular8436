@@ -5,15 +5,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { ModuloDeRoteamento } from "./app.routes";
-// import { CadastroComponent } from "./modules/cadastro/cadastro.component";
-import { LoginComponent } from "./modules/login/login.component";
 import { InboxComponent } from "./modules/inbox/inbox.component";
 import { Page404Component } from "./modules/page404/page404.component";
 import { TituloComponent } from "./components/titulo/titulo.component";
-// import { CmailFormGroupComponent } from "./components/cmail-form-group/cmail-form-group.component";
-// import { CmailFormFieldDirective } from "./components/cmail-form-group/cmailFormField.directive";
 import { HttpClientModule } from "@angular/common/http";
-import { CadastroModule } from "./modules/cadastro/cadastro.module";
+import { CmailFormModule } from "./shared/modules/cmailform/cmail-form.module";
+import { AuthBasicGuard } from "./guards/auth-basic.guard";
+import { EmailService } from "./modules/inbox/email.service";
 
 // Conjunto de componentes/lógicas
 @NgModule({
@@ -21,7 +19,6 @@ import { CadastroModule } from "./modules/cadastro/cadastro.module";
     // Componentes, Diretivas
     AppComponent,
     HeaderComponent,
-    LoginComponent,
     InboxComponent,
     Page404Component,
     TituloComponent
@@ -30,12 +27,12 @@ import { CadastroModule } from "./modules/cadastro/cadastro.module";
     // Módulos da aplicação ou de libs
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, //
     HttpClientModule,
-    // CadastroModule,
+    CmailFormModule,
     ModuloDeRoteamento
   ],
-  providers: [],
+  providers: [AuthBasicGuard, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
