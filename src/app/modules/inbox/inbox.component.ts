@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { EmailService } from "./email.service";
 import { Email } from "./domain/Email";
+import { HeaderService } from "src/app/components/header/header.service";
 
 // Props do componente
 interface IEmailFromView {
@@ -25,9 +26,16 @@ export class InboxComponent implements OnInit {
     body: "Corpo do email"
   };
 
-  isNewEmailFormOpen = true;
+  isNewEmailFormOpen = false;
 
-  constructor(private emailService: EmailService) {}
+  constructor(
+    private emailService: EmailService,
+    private headerService: HeaderService
+  ) {
+    this.headerService.valorDoFiltroDaBusca.subscribe(valorDaBusca => {
+      console.log("Pegando o valor que veio do service:", valorDaBusca);
+    });
+  }
 
   toggleNewEmailForm() {
     this.isNewEmailFormOpen = !this.isNewEmailFormOpen;
@@ -38,9 +46,9 @@ export class InboxComponent implements OnInit {
     // #Desafio:
     // Implementar a função listar parra fazer o código abaixo funcionar
     this.emailService.listar().subscribe((email: Email[]) => {
-      setTimeout(() => {
-        this.emails = email;
-      }, 1000);
+      // setTimeout(() => {
+      this.emails = email;
+      // }, 1000);
     });
   }
 

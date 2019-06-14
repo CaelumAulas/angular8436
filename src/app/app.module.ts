@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CmailFormModule } from "./shared/modules/cmailform/cmail-form.module";
 import { AuthBasicGuard } from "./guards/auth-basic.guard";
 import { EmailService } from "./modules/inbox/email.service";
+import { FiltraEmailPorBody } from "./modules/inbox/pipes/filtraEmailPorBody.pipe";
 
 // Conjunto de componentes/lógicas
 @NgModule({
@@ -21,7 +22,8 @@ import { EmailService } from "./modules/inbox/email.service";
     HeaderComponent,
     InboxComponent,
     Page404Component,
-    TituloComponent
+    TituloComponent,
+    FiltraEmailPorBody
   ],
   imports: [
     // Módulos da aplicação ou de libs

@@ -6,11 +6,16 @@
     <div class="page-content">
       <!-- O email, é um objeto literal do javascript -->
       <h1 *ngIf="emails.length === 0">Carregando...</h1>
+
+      <input (input)="(0)" #campoDeTestes type="text" />
       <ul>
-        <li *ngFor="let email of emails">
+        <li
+          *ngFor="let email of emails | filtraEmailPorBody: campoDeTestes.value"
+        >
           Para: {{ email.to }}<br />
-          Assunto: {{ email.subject }}<br />
+          Assunto: {{ email.subject | uppercase }}<br />
           Conteudo: {{ email.body }}<br />
+          Data de criação: {{ email.creationDate | date: "dd/MM/yyyy" }}<br />
         </li>
       </ul>
 

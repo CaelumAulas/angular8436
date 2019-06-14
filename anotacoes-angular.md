@@ -184,3 +184,14 @@ function map(funcao) {
   - Broadcast de eventos
 - Remover email
 - Criar um componente bonito pros emails
+
+=======
+
+// Página carrega no ngOnInit
+// Dispara um request para o servidor (GET)
+// Intercepta a requisição e monta um array de objetos com o que vc precisa
+// Substitui por um atributo no arquivo ts do componente (viewmodel)
+
+## Pra mexer com datas
+
+- https://momentjs.com/
