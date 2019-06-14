@@ -28,12 +28,14 @@ export class InboxComponent implements OnInit {
 
   isNewEmailFormOpen = false;
 
+  valorDoFiltroDosEmails = "";
+
   constructor(
     private emailService: EmailService,
     private headerService: HeaderService
   ) {
     this.headerService.valorDoFiltroDaBusca.subscribe(valorDaBusca => {
-      console.log("Pegando o valor que veio do service:", valorDaBusca);
+      this.valorDoFiltroDosEmails = valorDaBusca;
     });
   }
 

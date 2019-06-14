@@ -7,10 +7,11 @@
       <!-- O email, é um objeto literal do javascript -->
       <h1 *ngIf="emails.length === 0">Carregando...</h1>
 
-      <input (input)="(0)" #campoDeTestes type="text" />
       <ul>
         <li
-          *ngFor="let email of emails | filtraEmailPorBody: campoDeTestes.value"
+          *ngFor="
+            let email of emails | filtraEmailPorBody: valorDoFiltroDosEmails
+          "
         >
           Para: {{ email.to }}<br />
           Assunto: {{ email.subject | uppercase }}<br />
