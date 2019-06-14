@@ -174,3 +174,13 @@ function map(funcao) {
     - attchment
     - button
 -
+
+## Ultimo dia
+
+- Listar os emails: OK
+- Filtro de emails
+  - Ajustar as datas com pipes
+  - Pipes
+  - Broadcast de eventos
+- Remover email
+- Criar um componente bonito pros emails

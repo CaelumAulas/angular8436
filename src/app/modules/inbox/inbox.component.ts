@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { EmailService } from "./email.service";
 import { Email } from "./domain/Email";
@@ -14,7 +14,7 @@ interface IEmailFromView {
   selector: "cmail-inboxpage",
   templateUrl: "./inbox.component.html"
 })
-export class InboxComponent {
+export class InboxComponent implements OnInit {
   title = "Cmail - O Email mais showzao";
 
   emails: Email[] = [];
@@ -31,6 +31,17 @@ export class InboxComponent {
 
   toggleNewEmailForm() {
     this.isNewEmailFormOpen = !this.isNewEmailFormOpen;
+  }
+
+  ngOnInit() {
+    // implements OnInit
+    // #Desafio:
+    // Implementar a função listar parra fazer o código abaixo funcionar
+    this.emailService.listar().subscribe((email: Email[]) => {
+      setTimeout(() => {
+        this.emails = email;
+      }, 1000);
+    });
   }
 
   sendEmail(formEmail: NgForm) {
